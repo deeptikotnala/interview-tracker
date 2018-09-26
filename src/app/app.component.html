@@ -1,38 +1,40 @@
 <div class="wrapper">
 
-  <header class="main-header">
-    <a class="logo" href="/">
-      <!-- <span class="logo-lg"><b>My</b> Interviews</span> -->
-      <span class="logo-lg design">
-         <img class="syntel-logo" style="width:150px" src="../assets/img/logo.png" /> 
-      </span>
-    </a>
+    <header>
+        <a class="logo" href="/">
+          <span class="logo-lg">
+              <img class="syntel-logo" src="../assets/img/logo.png" /> 
+           </span>
+          </a>
 
-    <nav class="navbar navbar-static-top"></nav>
-  </header>
+          <span style="text-align: center"><b>Interview Tracker</b></span> 
+      </header>
+
+      
 
   <aside class="main-sidebar">
     <section class="sidebar" style="height: auto;">
       <ul class="sidebar-menu">
-        <li class="header">Main Menu</li>
-        <li class="active">
-          <a href="/dashboard">
+      
+        <li class="">
+          <a [routerLink]="['/dashboard']">
             <span>Dashboard</span>
           </a>
         </li>
         <li class="">
-          <a href="/applications">
+          <a [routerLink]="['/applications']">
             <span>Applications</span>
           </a>
         </li>
         <li class="">
-          <a href="/interviews">
+          <a [routerLink]="['/interviews']">
             <span>Interviews</span>
           </a>
         </li>
       </ul>
     </section>
   </aside>
+
   <div class="content-wrapper" style="min-height: 837px;">
   <router-outlet></router-outlet>
   </div>

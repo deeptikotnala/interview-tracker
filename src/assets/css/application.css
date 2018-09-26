@@ -401,7 +401,7 @@ a:focus {
 .main-sidebar,
 .left-side {
   position: absolute;
-  top: 0;
+  top: 5;
   left: 0;
   padding-top: 50px;
   min-height: 100%;
