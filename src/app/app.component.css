@@ -2,3 +2,7 @@
     float: left;
     width: 14%;
 }
+.sidebar-nav {
+    height: auto;
+    margin-top:-21%
+}
