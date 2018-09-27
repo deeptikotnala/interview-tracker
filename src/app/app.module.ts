@@ -1,11 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule} from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from 'src/dashboard/dashboard.component';
-import { ApplicationComponent } from './application/application.component';
-import { InterviewsComponent } from './interviews/interviews.component';
+import { ApplicationComponent } from '../application/application.component';
+import { InterviewsComponent } from '../interviews/interviews.component';
+import { UserService } from '../services/user.service';
+import { MatTableModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,8 @@ import { InterviewsComponent } from './interviews/interviews.component';
   ],
   imports: [
     BrowserModule,
+    MatTableModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -35,7 +40,7 @@ import { InterviewsComponent } from './interviews/interviews.component';
    },
    ])
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
