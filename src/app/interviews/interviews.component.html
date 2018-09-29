@@ -1,3 +1,49 @@
-<p>
-  interviews works!
-</p>
+<section class="content-header">
+  <h1>Interviews</h1>
+</section>
+<br/>
+
+    <div class="col-xs-12">
+      <div class="box box-info">
+        <div class="box-header with-border">
+          <h3 class="box-title">&nbsp;</h3>
+          <div class="box-tools">
+            <a class="btn btn-info btn-sm" href="/interviews/new">New Interview</a>
+          </div>
+        </div> 
+        <div class="box-body">
+          <table class="table table-striped table-hover">
+            <thead>
+            <tr>
+              <th>Schedule At</th>
+              <th>Interview Type</th>
+              <th>Interviewer Name</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            <tr *ngFor='let intv of interviews'>
+              <td>
+                {{ intv.scheduledDate}}
+              </td>
+              <td>
+                {{ intv.type}}
+              </td>
+              <td>
+                {{ intv.name}}
+              </td>
+              <td>
+                <button class="btn btn-sm btn-info"><i class="fa fa-edit"></i></button> &nbsp;
+                <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+              </td>
+
+            </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+

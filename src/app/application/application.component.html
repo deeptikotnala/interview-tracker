@@ -1,3 +1,52 @@
-<p>
-  application works!
-</p>
+<section class="content-header">
+  <h1>Applications</h1>
+</section>
+<br/>
+
+<div class="col-xs-12">
+  <div class="box box-info">
+    <div class="box-header">
+      <h3 class="box-title">&nbsp;</h3>
+      <div class="box-tools">
+        <a class="btn btn-info btn-sm" href="/my_applications/new">New Application</a>
+      </div>
+    </div>
+    <div class="box-body">
+      <table class="table table-striped table-hover">
+
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Contact</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let application of applications'>
+
+            <td>
+              {{ application.name}}
+            </td>
+            <td>
+              {{ application.position}}
+            </td>
+            <td>
+              {{ application.email }}
+              <br/> {{ application.phone }}
+            </td>
+            <td><span class="label bg-orange">{{ application.status }}</span></td>
+  
+            <td >
+              <button class="btn btn-sm btn-info"><i class="fa fa-edit"></i></button> &nbsp;
+              <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+            </td>
+
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

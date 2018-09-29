@@ -1,13 +1,36 @@
 [
   {
     "id": 1,
+    "type": "L1 - Technical",
     "name": "Leanne Graham",
     "position": "UI Developer",
     "scheduledDate": "2018-11-07 10:00"
   },
   {
     "id": 2,
+    "type": "L1 - Technical",
     "name": "Todd Graham",
+    "position": "Java Developer",
+    "scheduledDate": "2018-10-07 9:00"
+  },
+  {
+    "id": 3,
+    "type": "L1 - Technical",
+    "name": "Deepti",
+    "position": "Java Developer",
+    "scheduledDate": "2018-10-07 9:00"
+  },
+  {
+    "id": 4,
+    "type": "L1 - Technical",
+    "name": "Pavan",
+    "position": "Java Developer",
+    "scheduledDate": "2018-10-07 9:00"
+  },
+  {
+    "id": 5,
+    "type": "L1 - Technical",
+    "name": "Sagar",
     "position": "Java Developer",
     "scheduledDate": "2018-10-07 9:00"
   }
