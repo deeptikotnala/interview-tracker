@@ -4,6 +4,14 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import { Application } from '../models/application.model';
 import { Interview } from '../models/interviews.model';
+import { JobDetails } from 'src/app/models/job.details.model';
+import { HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +20,7 @@ export class ApplicationService {
 
   private applicationUrl = 'api/applications.json';
   private interviewsUrl = 'http://localhost:8080/getInterviewDetails';
+  private apiUrl = 'http://localhost:8080/';
 
   constructor(private http: HttpClient) { }
 
@@ -29,16 +38,25 @@ export class ApplicationService {
     );
   }
 
+  getJobDetails(): Observable<JobDetails[]> {
+    return this.http.get<JobDetails[]>(this.apiUrl + 'getJobDetails').pipe(
+      tap(data => console.log('All: ' + JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
+  addNewApplication(application: Application): Observable<Application> {
+    return this.http.post<Application>(this.apiUrl + 'addNewApplication', application, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(err: HttpErrorResponse) {
-    // in a real world app, we may send the server to some remote logging infrastructure
-    // instead of just logging it to the console
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {
-      // A client-side or network error occurred. Handle it accordingly.
       errorMessage = `An error occurred: ${err.error.message}`;
     } else {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong,
       errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
     }
     console.error(errorMessage);
