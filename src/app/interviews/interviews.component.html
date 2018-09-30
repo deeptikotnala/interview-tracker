@@ -10,14 +10,16 @@
           <div class="box-tools">
             <a class="btn btn-info btn-sm" href="/interviews/new">New Interview</a>
           </div>
-        </div> 
+        </div>
         <div class="box-body">
           <table class="table table-striped table-hover">
             <thead>
             <tr>
+              <th>Applicant Name</th>
               <th>Schedule At</th>
-              <th>Interview Type</th>
+              <th>Skills</th>
               <th>Interviewer Name</th>
+              <th>Status</th>
               <th>Actions</th>
             </tr>
             </thead>
@@ -26,14 +28,21 @@
 
             <tr *ngFor='let intv of interviews'>
               <td>
-                {{ intv.scheduledDate}}
+                {{ intv.firstName }} - {{ intv.lastName}}
               </td>
               <td>
-                {{ intv.type}}
+                {{ intv.intDateTime}} - {{intv.intTimeZone}}
               </td>
               <td>
-                {{ intv.name}}
+                {{ intv.skills}}
               </td>
+              <td>
+                {{ intv.evaluatorName}}
+              </td>
+              <td>
+                {{ intv.status}}
+              </td>
+
               <td>
                 <button class="btn btn-sm btn-info"><i class="fa fa-edit"></i></button> &nbsp;
                 <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
@@ -46,4 +55,3 @@
         </div>
       </div>
     </div>
-

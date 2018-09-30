@@ -62,19 +62,22 @@
                         <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
+                                    <th>Applicant Name</th>
                                     <th>Scheduled Date</th>
-                                    <th>Application</th>
+                                    <th>Interviewer Name</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor='let intv of interviews'>
-                                    <td>
-                                        {{ intv.scheduledDate}}
-                                    </td>
-                                    <td>
-                                        {{ intv.name}} - {{ intv.position}}
-                                    </td>
-
+                                  <td>
+                                    {{ intv.firstName }} - {{ intv.lastName}}
+                                  </td>
+                                  <td>
+                                    {{ intv.intDateTime}} - {{intv.intTimeZone}}
+                                  </td>
+                                  <td>
+                                    {{ intv.evaluatorName}}
+                                  </td>
                                 </tr>
                             </tbody>
                         </table>

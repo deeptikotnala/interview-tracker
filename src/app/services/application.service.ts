@@ -11,7 +11,7 @@ import { Interview } from '../models/interviews.model';
 export class ApplicationService {
 
   private applicationUrl = 'api/applications.json';
-  private interviewsUrl = 'api/interviews.json';
+  private interviewsUrl = 'http://localhost:8080/getInterviewDetails';
 
   constructor(private http: HttpClient) { }
 
