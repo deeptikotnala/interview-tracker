@@ -1,0 +1,118 @@
+<section class="content-header">
+  <h1>Add New Application</h1>
+</section>
+<br/>
+
+<section class="content">
+
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="box box-info">
+        <div class="box-header with-border">
+          <h3 class="box-title">Application info</h3>
+        </div>
+        
+        <form class="form-horizontal" id="new_application" (ngSubmit)="onSubmit()">
+          <div class="box-body">
+            <div class="row">
+
+              <div class="col-md-6">
+                <div class="form-group ">
+                  <label class="col-sm-4 control-label" for="first_name">
+                    First Name
+                    <span class="text-red" title="Mandatory">*</span>
+                  </label>
+                  <div class="col-sm-8">
+                    <input class="form-control" type="text" name="first_name" id="first_name" [(ngModel)]="newApplication.firstName">
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group ">
+                  <label class="col-sm-4 control-label" for="last_name">
+                    Last Name
+                    <span class="text-red" title="Mandatory">*</span>
+                  </label>
+                  <div class="col-sm-8">
+                    <input class="form-control" type="text" name="last_name" id="first_name" [(ngModel)]="newApplication.lastName">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+
+              <div class="col-md-6">
+                <div class="form-group ">
+                  <label class="col-sm-4 control-label" for="dob">
+                    Date Of Birth
+                    <span class="text-red" title="Mandatory">*</span>
+                  </label>
+                  <div class="col-sm-8">
+                    <input class="form-control" type="date" name="dob" id="dob" [(ngModel)]="newApplication.dob">
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group ">
+                  <label class="col-sm-4 control-label" for="position_for">
+                    For Position
+                    <span class="text-red" title="Mandatory">*</span>
+                  </label>
+                  <div class="col-sm-8">
+                    <select class="form-control" (change)="onjobChange($event)">
+                      <option [value]=0>Select</option>
+                      <option *ngFor="let job of jobDetails" [value]="job.id">
+                        {{job.jobType}}
+                      </option>
+                    </select>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group ">
+                  <label class="col-sm-4 control-label" for="sponsorship">
+                    Sponsorship Required
+                    <span class="text-red" title="Mandatory">*</span>
+                  </label>
+                  <div class="col-sm-8">
+                    <select name="sponsorship" class="form-control" (change)="onSponsorshipChange($event)">
+                      <option [value]=0>No</option>
+                      <option [value]=1>Yes</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                  <div class="form-group ">
+                    <label class="col-sm-4 control-label" for="skills">
+                      Skills
+                      <span class="text-red" title="Mandatory">*</span>
+                    </label>
+                    <div class="col-sm-8">
+                      <textarea name="skills" class="form-control" [(ngModel)]="newApplication.skills">
+
+                      </textarea>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+
+            <button class="btn" type="submit">Submit</button>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
