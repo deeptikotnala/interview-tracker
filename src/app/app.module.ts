@@ -11,6 +11,7 @@ import { InterviewsComponent } from './interviews/interviews.component';
 import { ApplicationService } from './services/application.service';
 import { MatTableModule } from '@angular/material';
 import { NewApplicationComponent } from 'src/app/application/new.application.component';
+import { NewInterviewComponent } from 'src/app/interviews/new.interview.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NewApplicationComponent } from 'src/app/application/new.application.com
     DashboardComponent,
     ApplicationComponent,
     InterviewsComponent,
-    NewApplicationComponent
+    NewApplicationComponent,
+    NewInterviewComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import { NewApplicationComponent } from 'src/app/application/new.application.com
       { path: 'dashboard', component: DashboardComponent },
       { path: 'applications', component: ApplicationComponent},
       { path: 'interviews', component: InterviewsComponent },
-      { path: 'new-application', component: NewApplicationComponent }
+      { path: 'new-application', component: NewApplicationComponent },
+      { path: 'new-interview', component: NewInterviewComponent }
    ])
   ],
   providers: [ApplicationService],

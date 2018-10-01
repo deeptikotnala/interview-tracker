@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ApplicationService} from '../services/application.service';
 import { JobDetails } from 'src/app/models/job.details.model';
 import { Application } from 'src/app/models/application.model';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './new.application.component.html',
@@ -17,7 +17,7 @@ export class NewApplicationComponent implements OnInit {
   sponsorshipReq: Number = 0;
 
   constructor(private applicationService: ApplicationService, private router: Router) {
-    
+
    }
 
   ngOnInit() {
@@ -28,6 +28,8 @@ export class NewApplicationComponent implements OnInit {
       },
       error => this.errorMessage = <any>error
     );
+
+    console.log(this.jobDetails);
 }
 
 public onjobChange(event): void {
