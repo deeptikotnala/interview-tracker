@@ -27,9 +27,10 @@
             <tbody>
 
             <tr *ngFor='let intv of interviews'>
+              <a [routerLink]="['/interview-summary']" [queryParams]="{id: intv.id}">
               <td>
-                {{ intv.firstName }} - {{ intv.lastName}}
-              </td>
+                {{ intv.firstName }}  {{ intv.lastName}}
+              </td> </a>
               <td>
                 {{ intv.intDateTime}} - {{intv.intTimeZone}}
               </td>

@@ -1,0 +1,141 @@
+<section class="content-header">
+    <h1>Interview Summary</h1>
+</section>
+<br/>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3>{{interviews.firstName}} {{interviews.lastName}}</h3>
+                    <div class="box-tools">
+                        <a class="btn btn-default btn-sm" [routerLink]="['/interviews']">Back</a>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group ">
+                                <label class="col-sm-5 control-label">
+                                   Interviewer Email Id
+                                </label>
+                                <div class="col-sm-2">
+                                    {{interviews.emailId}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <div class="form-group ">
+                                <label class="col-sm-5 control-label">
+                                    Interviewer Name
+                                </label>
+                                <div class="col-sm-2">
+                                    {{interviews.evaluatorName}}
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <tabs>
+                        <tab tabTitle="Interview Details">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group ">
+                                        <label class="col-sm-4 control-label">
+                                            Position
+                                        </label>
+                                        <div class="col-sm-8">
+                                            {{interviews.jobtype}}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group ">
+                                        <label class="col-sm-6 control-label">
+                                          Interview Time
+                                        </label>
+                                        <div class="col-sm-6">
+                                            {{interviews.intDateTime}}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                        <div class="form-group ">
+                                            <label class="col-sm-6 control-label">
+                                              Timezone
+                                            </label>
+                                            <div class="col-sm-6">
+                                                {{interviews.intTimeZone}}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                            </div>
+
+                            <div class="row">
+                          <div class="col-md-4">
+                            <div class="form-group ">
+                              <label class="col-sm-6 control-label">
+                                Interview Type
+                              </label>
+                              <div class="col-sm-6">
+                                {{interviews.intType}}
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-md-6">
+                            <div class="form-group ">
+                              <label class="col-sm-6 control-label">
+                                Status
+                              </label>
+                              <div class="col-sm-6">
+                                <select name="int_status" id = "int_status" class="form-control" (change)="onStatusChange($event)">
+                                  <option [value]=-1>Select</option>
+                                  <option [value]=1>PASSED</option>
+                                  <option [value]=2>FAILED</option>
+                                  <option [value]=3>CANDIDATE NOT AVAILABLE</option>
+                                  <option [value]=4>RESCHEDULED</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="form-group ">
+                                <label class="col-sm-12 control-label">
+                                  Interviewer Comments
+                                </label>
+
+                              </div>
+                            </div>
+
+                            <div class="col-md-8">
+                              <div class="form-group ">
+                                <textarea [(ngModel)]="interviews.evaluatorComment" class="tinymce" rows="5" [cols]="65" name="interview[notes]" id="interview_notes"  ></textarea>
+                              </div>
+                            </div>
+
+                            <button class="btn" style="margin-left: 90%" (click)="onSubmit()" type="submit">Submit</button>
+
+
+                          </div>
+
+                        </tab>
+
+                    </tabs>
+
+                </div>
+
+            </div>
+
+        </div>
