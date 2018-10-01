@@ -59,6 +59,14 @@ export class ApplicationService {
     );
   }
 
+  addNewInterview(interview: Interview): Observable<Interview> {
+    console.log(interview);
+    return this.http.post<Interview>(this.apiUrl + 'addNewInterview', interview, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
   private handleError(err: HttpErrorResponse) {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {
