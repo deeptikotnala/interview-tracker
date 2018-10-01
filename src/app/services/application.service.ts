@@ -7,6 +7,7 @@ import { Interview } from '../models/interviews.model';
 import { JobDetails } from 'src/app/models/job.details.model';
 import { HttpHeaders } from '@angular/common/http';
 import { ApplicantInterviewHistory } from 'src/app/models/applicant.int.history.model';
+import { InterviewSummaryModel } from 'src/app//models/interview.summary.model';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -76,6 +77,13 @@ export class ApplicationService {
   getAllInterviewsofApplicant(appId: Number, jobId: Number): Observable<ApplicantInterviewHistory[]> {
     return this.http.get<ApplicantInterviewHistory[]>(this.apiUrl+'getOverallFeedback/'+appId+'/'+jobId).pipe(
       tap(data => console.log('getAllInterviewsofApplicant: ' + JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
+  getInterviewSummary(intId: Number): Observable<InterviewSummaryModel[]> {
+    return this.http.get<InterviewSummaryModel[]>(this.apiUrl+'getInterviewSummary/'+intId).pipe(
+      tap(data => console.log('getAllInterviewSummary: ' + JSON.stringify(data))),
       catchError(this.handleError)
     );
   }

@@ -69,10 +69,11 @@ export class NewInterviewComponent implements OnInit {
   public onSubmit(){
     this.newApplication.applicantId = this.selectedApplicantId;
     this.newApplication.intTypeId = this.interviewtype;
-    this.newApplication.intResultId = this.statusId;
+    this.newApplication.intResultId = 5;
     this.newApplication.jobId=this.selectedJobId;
-    this.applicationService.addNewInterview(this.newApplication).subscribe(data => console.log(data));
-    this.router.navigateByUrl('/interviews');
+    this.applicationService.addNewInterview(this.newApplication)
+      .subscribe(() =>  this.router.navigateByUrl('/interviews'));
+
   }
 
 }

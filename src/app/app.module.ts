@@ -13,6 +13,7 @@ import { MatTableModule } from '@angular/material';
 import { NewApplicationComponent } from 'src/app/application/new.application.component';
 import { NewInterviewComponent } from 'src/app/interviews/new.interview.component';
 import { ApplicantInfo } from 'src/app/applicant/applicant.info.component';
+import { InterviewSummary } from 'src/app/interviewsummary/interview.summary.component';
 import { TabModule } from 'angular-tabs-component';
 
 @NgModule({
@@ -23,7 +24,8 @@ import { TabModule } from 'angular-tabs-component';
     InterviewsComponent,
     NewApplicationComponent,
     NewInterviewComponent,
-    ApplicantInfo
+    ApplicantInfo,
+    InterviewSummary
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { TabModule } from 'angular-tabs-component';
       { path: 'interviews', component: InterviewsComponent },
       { path: 'new-application', component: NewApplicationComponent },
       { path: 'new-interview', component: NewInterviewComponent },
-      { path: 'applicant-info', component: ApplicantInfo }
+      { path: 'applicant-info', component: ApplicantInfo },
+      { path: 'interview-summary', component: InterviewSummary }
    ])
   ],
   providers: [ApplicationService],

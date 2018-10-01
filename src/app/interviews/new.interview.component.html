@@ -66,7 +66,7 @@
                     <select id = "selectApplicant" name="selectApplicant" class="form-control" (change)="onApplicantChange($event)">
                       <option [value]=0>Select</option>
                       <option *ngFor="let applicant of applicantDetails" [value]="applicant.id">
-                        {{applicant.firstName}}
+                        {{applicant.firstName}}  {{applicant.lastName}}
                       </option>
                     </select>
 
@@ -89,20 +89,6 @@
                   </div>
                 </div>
 
-                <div class="col-md-6">
-                  <div class="form-group ">
-                    <label class="col-sm-4 control-label" for="comments">
-                      Comments
-                      <span class="text-red" title="Mandatory">*</span>
-                    </label>
-                    <div class="col-sm-8">
-                      <input class="form-control" type="text" name="comments" id="comments" [(ngModel)]="newApplication.evaluatorComment">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            <div class="row">
               <div class="col-md-6">
                 <div class="form-group ">
                   <label class="col-sm-4 control-label" for="intType">
@@ -111,7 +97,7 @@
                   </label>
                   <div class="col-sm-8">
                     <select name="intType" id = "intType" class="form-control" (change)="onInterviewTypeChange($event)">
-                        <option [value]=-1>Select</option>
+                      <option [value]=-1>Select</option>
                       <option [value]=1>L1</option>
                       <option [value]=2>L2</option>
                       <option [value]=3>Client</option>
@@ -121,26 +107,9 @@
                 </div>
               </div>
 
-              <div class="col-md-6">
-                <div class="form-group ">
-                  <label class="col-sm-4 control-label" for="int_status">
-                    Interview Status
-                    <span class="text-red" title="Mandatory">*</span>
-                  </label>
-                  <div class="col-sm-8">
-                    <select name="int_status" id = "int_status" class="form-control" (change)="onStatusChange($event)">
-                      <option [value]=-1>Select</option>
-                      <option [value]=1>PASSED</option>
-                      <option [value]=2>FAILED</option>
-                      <option [value]=3>CANDIDATE NOT AVAILABLE</option>
-                      <option [value]=4>RESCHEDULED</option>
-                      <option [value]=5>SCHEDULED</option>
-                    </select>
-                  </div>
-                </div>
-                </div>
+              </div>
 
-            </div>
+
 
             <button class="btn" type="submit">Submit</button>
 
