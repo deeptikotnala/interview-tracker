@@ -16,7 +16,9 @@ export class NewApplicationComponent implements OnInit {
   selectedJobId:Number = 0;
   sponsorshipReq: Number = 0;
 
-  constructor(private applicationService: ApplicationService, private router: Router) { }
+  constructor(private applicationService: ApplicationService, private router: Router) {
+    
+   }
 
   ngOnInit() {
 

@@ -14,5 +14,7 @@ export class Application {
   dob: Date;
   sponsorshipReq: Number;
   skills: String;
+  emailId: string;
+  phoneNo:string;
 
 }

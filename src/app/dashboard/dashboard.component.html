@@ -26,16 +26,16 @@
                             <tbody>
                                 <tr *ngFor='let application of applications'>
                                     <td>
-                                        {{ application.name}}
+                                        {{ application.firstName}}&nbsp;{{ application.lastName}}
                                     </td>
                                     <td>
                                         {{ application.position}}
                                     </td>
                                     <td>
-                                        {{ application.email }}
-                                        <br/> {{ application.phone }}
+                                        {{ application.emailId }}
+                                        <br/> {{ application.phoneNo }}
                                     </td>
-                                    <td>{{ application.status }}</td>
+                                    <td></td>
 
                                 </tr>
                             </tbody>
@@ -46,7 +46,7 @@
 
                 <div class="box-footer clearfix">
                     <a class="btn btn-sm btn-info btn-flat pull-left" [routerLink]="['/new-application']">New Application</a>
-                    <a class="btn btn-sm btn-default btn-flat pull-right" href="/my_applications">View All Applications</a>
+                    <a class="btn btn-sm btn-default btn-flat pull-right" [routerLink]="['/applications']">View All Applications</a>
                 </div>
 
             </div>

@@ -25,8 +25,15 @@ export class ApplicationService {
   constructor(private http: HttpClient) { }
 
   getApplications(): Observable<Application[]> {
-    return this.http.get<Application[]>(this.applicationUrl).pipe(
+    return this.http.get<Application[]>(this.apiUrl+'getAllApplications').pipe(
       tap(data => console.log('All: ' + JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
+  getLastApplications(): Observable<Application[]> {
+    return this.http.get<Application[]>(this.apiUrl + 'getLastApplications').pipe(
+      tap(data => console.log('Last 10 Applications: ' + JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
