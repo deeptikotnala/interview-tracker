@@ -16,7 +16,7 @@
 
         <thead>
           <tr>
-            <th>Name</th>
+            <th>Candidate Name</th>
             <th>Position</th>
             <th>Contact</th>
             <th>Status</th>
@@ -26,9 +26,9 @@
         <tbody>
           <tr *ngFor='let application of applications'>
 
-            <td>
-              {{ application.firstName}} &nbsp; {{application.lastName}}
-            </td>
+            <a [routerLink]="['/applicant-info']" [queryParams]="{id: application.id}">
+              <td  width="200">{{ application.firstName}}&nbsp;{{application.lastName}}</td></a>
+  
             <td>
               {{ application.position}}
             </td>

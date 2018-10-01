@@ -5,7 +5,7 @@ export class Application {
   email: string;
   phone: string;
   status: string;
-
+  jobId:Number;
 
   //Newly Added 
   firstName: string;

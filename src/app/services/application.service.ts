@@ -6,6 +6,7 @@ import { Application } from '../models/application.model';
 import { Interview } from '../models/interviews.model';
 import { JobDetails } from 'src/app/models/job.details.model';
 import { HttpHeaders } from '@angular/common/http';
+import { ApplicantInterviewHistory } from 'src/app/models/applicant.int.history.model';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -58,13 +59,25 @@ export class ApplicationService {
       catchError(this.handleError)
     );
   }
-
   addNewInterview(interview: Interview): Observable<Interview> {
     console.log(interview);
     return this.http.post<Interview>(this.apiUrl + 'addNewInterview', interview, httpOptions)
       .pipe(
         catchError(this.handleError)
       );
+    }
+  getApplicantById(id : Number): Observable<Application> {
+    return this.http.get<Application>(this.apiUrl+'getApplicantById/'+id).pipe(
+      tap(data => console.log('Applicant Info : ' + JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
+  getAllInterviewsofApplicant(appId: Number, jobId: Number): Observable<ApplicantInterviewHistory[]> {
+    return this.http.get<ApplicantInterviewHistory[]>(this.apiUrl+'getOverallFeedback/'+appId+'/'+jobId).pipe(
+      tap(data => console.log('getAllInterviewsofApplicant: ' + JSON.stringify(data))),
+      catchError(this.handleError)
+    );
   }
 
   private handleError(err: HttpErrorResponse) {
