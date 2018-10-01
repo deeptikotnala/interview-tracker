@@ -27,16 +27,16 @@
           <tr *ngFor='let application of applications'>
 
             <td>
-              {{ application.name}}
+              {{ application.firstName}} &nbsp; {{application.lastName}}
             </td>
             <td>
               {{ application.position}}
             </td>
             <td>
-              {{ application.email }}
-              <br/> {{ application.phone }}
+              {{ application.emailId }}
+              <br/> {{ application.phoneNo }}
             </td>
-            <td><span class="label bg-orange">{{ application.status }}</span></td>
+            <td><span class="label bg-orange"></span></td>
   
             <td >
               <button class="btn btn-sm btn-info"><i class="fa fa-edit"></i></button> &nbsp;

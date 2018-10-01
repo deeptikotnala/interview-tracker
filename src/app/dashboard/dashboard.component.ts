@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
 
-    this.applicationService.getApplications().subscribe(
+    this.applicationService.getLastApplications().subscribe(
       res => {
         this.applications = res;
       },
@@ -34,6 +34,7 @@ export class DashboardComponent implements OnInit {
       },
       error => this.errorMessage = <any>error
     );
+
   }
 }
 

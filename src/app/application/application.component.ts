@@ -11,7 +11,6 @@ import {Application} from '../models/application.model';
 export class ApplicationComponent implements OnInit {
 
   applications: Application[] = [];
-  interviews: Interview[] = [];
   errorMessage = '';
 
   constructor(private applicationService: ApplicationService) { }
@@ -21,16 +20,11 @@ export class ApplicationComponent implements OnInit {
     this.applicationService.getApplications().subscribe(
       res => {
         this.applications = res;
+        console.log('Applications :'+JSON.stringify(res));
       },
       error => this.errorMessage = <any>error
     );
 
-    this.applicationService.getInterviews().subscribe(
-      res => {
-        this.interviews = res;
-      },
-      error => this.errorMessage = <any>error
-    );
   }
 
 }
