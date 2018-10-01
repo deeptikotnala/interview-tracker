@@ -43,8 +43,8 @@ public onSponsorshipChange(event): void {
 public onSubmit(){
    this.newApplication.jobDetailId = this.selectedJobId;
    this.newApplication.sponsorshipReq = this.sponsorshipReq;
-   this.applicationService.addNewApplication(this.newApplication).subscribe(data => console.log(data));
-   this.router.navigateByUrl('/applications');
+   this.applicationService.addNewApplication(this.newApplication)
+   .subscribe(() =>  this.router.navigateByUrl('/applications'));
 }
 
 }
