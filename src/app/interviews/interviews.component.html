@@ -41,7 +41,11 @@
                 {{ intv.evaluatorName}}
               </td>
               <td>
-                {{ intv.status | titlecase }}
+                <span *ngIf="intv.status==='PASSED'" class="label bg-green"> {{ intv.status | titlecase }}</span>
+                <span *ngIf="intv.status==='FAILED'" class="label bg-red"> {{ intv.status | titlecase }}</span>
+                <span *ngIf="intv.status==='CANDIDATE NOT AVAILABLE'" class="label bg-yellow"> {{ intv.status | titlecase }}</span>
+                <span *ngIf="intv.status==='RESCHEDULED'" class="label bg-yellow"> {{ intv.status | titlecase }}</span>
+                <span *ngIf="intv.status==='SCHEDULED'" class="label bg-orange"> {{ intv.status | titlecase }}</span>
               </td>
 
               <td>
