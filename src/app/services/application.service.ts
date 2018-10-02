@@ -67,6 +67,14 @@ export class ApplicationService {
         catchError(this.handleError)
       );
     }
+
+  updateInterview(interview: Interview): Observable<Interview> {
+    console.log(interview);
+    return this.http.post<Interview>(this.apiUrl + 'updateInterview', interview, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
   getApplicantById(id : Number): Observable<Application> {
     return this.http.get<Application>(this.apiUrl+'getApplicantById/'+id).pipe(
       tap(data => console.log('Applicant Info : ' + JSON.stringify(data))),
