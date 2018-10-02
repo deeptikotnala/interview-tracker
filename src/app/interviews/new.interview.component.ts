@@ -19,6 +19,7 @@ export class NewInterviewComponent implements OnInit {
   selectedApplicantId:Number = 0;
   interviewtype: Number = 0;
   statusId: Number = 0;
+  timezone:string = 'EST';
 
   constructor(private applicationService: ApplicationService, private router: Router) {
 
@@ -58,12 +59,14 @@ export class NewInterviewComponent implements OnInit {
 
   public onStatusChange(event): void {
     this.statusId = event.target.value;
-    console.log(this.statusId);
   }
 
   public onInterviewTypeChange(event): void {
     this.interviewtype = event.target.value;
-    console.log(this.interviewtype);
+  }
+
+  onTimezoneChange(event): void {
+    this.timezone = event.target.value;
   }
 
   public onSubmit(){
@@ -71,6 +74,7 @@ export class NewInterviewComponent implements OnInit {
     this.newApplication.intTypeId = this.interviewtype;
     this.newApplication.intResultId = 5;
     this.newApplication.jobId=this.selectedJobId;
+    this.newApplication.intTimeZone=this.timezone;
     this.applicationService.addNewInterview(this.newApplication)
       .subscribe(() =>  this.router.navigateByUrl('/interviews'));
 
