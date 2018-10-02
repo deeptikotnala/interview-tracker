@@ -112,8 +112,8 @@
                   <div class="col-sm-8">
                     <select name="sponsorship" class="form-control" (change)="onSponsorshipChange($event)">
                         <option [value]=-1>Select</option>
-                      <option [value]=0>No</option>
                       <option [value]=1>Yes</option>
+                      <option [value]=0>No</option>
                     </select>
                   </div>
                 </div>
@@ -132,11 +132,26 @@
                     </div>
                   </div>
                 </div>
-
             </div>
 
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group ">
+                      <label class="col-sm-4 control-label" for="resume">
+                        Resume
+                        <span class="text-red" title="Mandatory">*</span>
+                      </label>
+                      <div class="col-sm-8">
+                          <input type="file"
+                          id="avatar" name="avatar"
+                          accept="file/pdf, file/docx" />
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <br/>
 
-            <button class="btn" type="submit">Submit</button>
+            <button style="margin-left:1%" class="btn btn-info" type="submit">Submit</button>
 
           </div>
         </form>

@@ -31,15 +31,16 @@
 
               <div class="col-md-6">
                 <div class="form-group ">
-                  <label class="col-sm-4 control-label" for="time_zone">
-                    Time Zone
+                  <label class="col-sm-4 control-label" for="email">
+                    Email Id
                     <span class="text-red" title="Mandatory">*</span>
                   </label>
                   <div class="col-sm-8">
-                    <input class="form-control" type="text" name="time_zone" id="time_zone" [(ngModel)]="newApplication.intTimeZone">
+                    <input class="form-control" type="text" name="email" id="email" [(ngModel)]="newApplication.emailId">
                   </div>
                 </div>
               </div>
+
             </div>
 
             <div class="row">
@@ -58,36 +59,41 @@
 
               <div class="col-md-6">
                 <div class="form-group ">
+                  <label class="col-sm-4 control-label" for="tz">
+                    Timezone
+                    <span class="text-red" title="Mandatory">*</span>
+                  </label>
+                  <div class="col-sm-8">
+                    <select name="tz" id="tz" class="form-control" (change)="onTimezoneChange($event)">
+                      <option [value]='EST'>EST</option>
+                      <option [value]='CST'>CST</option>
+                      <option [value]='PST'>PST</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col-md-6">
+                <div class="form-group ">
                   <label class="col-sm-4 control-label" for="selectApplicant">
                     Candidate
                     <span class="text-red" title="Mandatory">*</span>
                   </label>
                   <div class="col-sm-8">
-                    <select id = "selectApplicant" name="selectApplicant" class="form-control" (change)="onApplicantChange($event)">
+                    <select id="selectApplicant" name="selectApplicant" class="form-control" (change)="onApplicantChange($event)">
                       <option [value]=0>Select</option>
                       <option *ngFor="let applicant of applicantDetails" [value]="applicant.id">
-                        {{applicant.firstName}}  {{applicant.lastName}}
+                        {{applicant.firstName}} {{applicant.lastName}}
                       </option>
                     </select>
 
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div class="row">
-
-                <div class="col-md-6">
-                  <div class="form-group ">
-                    <label class="col-sm-4 control-label" for="email">
-                      Email Id
-                      <span class="text-red" title="Mandatory">*</span>
-                    </label>
-                    <div class="col-sm-8">
-                      <input class="form-control" type="text" name="email" id="email" [(ngModel)]="newApplication.emailId">
-                    </div>
-                  </div>
-                </div>
 
               <div class="col-md-6">
                 <div class="form-group ">
@@ -96,7 +102,7 @@
                     <span class="text-red" title="Mandatory">*</span>
                   </label>
                   <div class="col-sm-8">
-                    <select name="intType" id = "intType" class="form-control" (change)="onInterviewTypeChange($event)">
+                    <select name="intType" id="intType" class="form-control" (change)="onInterviewTypeChange($event)">
                       <option [value]=-1>Select</option>
                       <option [value]=1>L1</option>
                       <option [value]=2>L2</option>
@@ -107,11 +113,9 @@
                 </div>
               </div>
 
-              </div>
+            </div>
 
-
-
-            <button class="btn" type="submit">Submit</button>
+              <button style="margin-left:1%" class="btn btn btn-info" type="submit">Submit</button>
 
           </div>
         </form>
