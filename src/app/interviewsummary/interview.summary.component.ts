@@ -17,6 +17,7 @@ export class InterviewSummary implements OnInit {
   errorMessage = '';
   intId: number;
   newApplication: Interview = new Interview();
+  selectedStatus: Number;
 
 
   constructor(private applicationService: ApplicationService, private route: ActivatedRoute,private router: Router) {
@@ -38,9 +39,21 @@ export class InterviewSummary implements OnInit {
 
   }
 
+  public onStatusChange(event): void {
+    this.selectedStatus = event.target.value;
+    console.log(this.selectedStatus);
+  }
+
+
   public onSubmit(){
 
-    this.applicationService.addNewInterview(this.newApplication)
+    console.log(this.interviews);
+    this.newApplication.intResultId= this.selectedStatus;
+    this.newApplication.id=this.interviews.id;
+    this.newApplication.evaluatorComment=this.interviews.evaluatorComment;
+
+
+    this.applicationService.updateInterview(this.newApplication)
       .subscribe(() =>  this.router.navigateByUrl('/interviews'));
   }
 }
