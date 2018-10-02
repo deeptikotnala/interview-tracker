@@ -19,7 +19,6 @@
             <th>Candidate Name</th>
             <th>Position</th>
             <th>Contact</th>
-            <th>Status</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -27,8 +26,9 @@
           <tr *ngFor='let application of applications'>
 
             <a [routerLink]="['/applicant-info']" [queryParams]="{id: application.id}">
-              <td  width="200">{{ application.firstName}}&nbsp;{{application.lastName}}</td></a>
-  
+              <td width="200">{{ application.firstName}}&nbsp;{{application.lastName}}</td>
+            </a>
+
             <td>
               {{ application.position}}
             </td>
@@ -36,11 +36,14 @@
               {{ application.emailId }}
               <br/> {{ application.phoneNo }}
             </td>
-            <td><span class="label bg-orange">In Progress</span></td>
-  
-            <td >
-              <button class="btn btn-sm btn-info"><i class="fa fa-edit"></i></button> &nbsp;
-              <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+
+            <td>
+              <button class="btn btn-sm btn-info">
+                <i class="fa fa-edit"></i>
+              </button> &nbsp;
+              <button class="btn btn-sm btn-danger">
+                <i class="fa fa-trash"></i>
+              </button>
             </td>
 
           </tr>

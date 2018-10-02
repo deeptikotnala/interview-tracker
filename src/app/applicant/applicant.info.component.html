@@ -53,7 +53,7 @@
                                         </div>
                                     </div>
                                 </div>
-                    
+
                                 <div class="col-md-4">
                                     <div class="form-group ">
                                         <label class="col-sm-6 control-label">
@@ -66,83 +66,89 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                        <div class="form-group ">
-                                            <label class="col-sm-6 control-label">
-                                                Location
-                                            </label>
-                                            <div class="col-sm-6">
-                                                {{applicantInfo?.location}}
-                                            </div>
+                                    <div class="form-group ">
+                                        <label class="col-sm-6 control-label">
+                                            Location
+                                        </label>
+                                        <div class="col-sm-6">
+                                            {{applicantInfo?.location}}
                                         </div>
                                     </div>
-                    
+                                </div>
+
                             </div>
 
                             <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group ">
-                                            <label class="col-sm-6 control-label">
-                                                Hiring Manager
-                                            </label>
-                                            <div class="col-sm-6">
-                                                {{applicantInfo?.hiringManager}}
-                                            </div>
+                                <div class="col-md-4">
+                                    <div class="form-group ">
+                                        <label class="col-sm-6 control-label">
+                                            Hiring Manager
+                                        </label>
+                                        <div class="col-sm-6">
+                                            {{applicantInfo?.hiringManager}}
                                         </div>
                                     </div>
-                        
-                                    <div class="col-md-4">
-                                        <div class="form-group ">
-                                            <label class="col-sm-6 control-label">
-                                                Career Level
-                                            </label>
-                                            <div class="col-sm-6">
-                                                {{applicantInfo?.careerLevel}}
-                                            </div>
-                                        </div>
-                                    </div>
-    
-                                    <div class="col-md-4">
-                                            <div class="form-group ">
-                                                <label class="col-sm-6 control-label">
-                                                    Begin Date
-                                                </label>
-                                                <div class="col-sm-6">
-                                                    {{applicantInfo?.beginDate}}
-                                                </div>
-                                            </div>
-                                        </div>
-                        
                                 </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group ">
+                                        <label class="col-sm-6 control-label">
+                                            Career Level
+                                        </label>
+                                        <div class="col-sm-6">
+                                            {{applicantInfo?.careerLevel}}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group ">
+                                        <label class="col-sm-6 control-label">
+                                            Begin Date
+                                        </label>
+                                        <div class="col-sm-6">
+                                            {{applicantInfo?.beginDate}}
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </tab>
-                        <tab tabTitle="Overall Feedback" >
-                                <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>Interview Date (TZ)</th>
-                                                <th>Interview Type</th>
-                                                <th>Evaluator</th>
-                                                <th>interviewResult</th>
-                                                <th>Evaluator Comments</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr *ngFor='let a of interviews'>
-                                                <td>
-                                                    {{ a.intDate}}&nbsp;({{ a.timezone}})
-                                                </td>
-                                                <td>
-                                                    {{ a.type }}
-                                                </td>
-                                                <td>
-                                                    {{ a.evaluatorName }}
-                                                    <br/> {{ a.evaluatorEmailId }}
-                                                </td>
-                                                <td>{{a.interviewResult}}</td>
-                                                <td>{{a.evaluatorComments}}</td>
-            
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                        <tab tabTitle="Overall Feedback">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Interview Date (TZ)</th>
+                                        <th>Interview Type</th>
+                                        <th>Evaluator</th>
+                                        <th>Interview Result</th>
+                                        <th>Evaluator Comments</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor='let a of interviews'>
+                                        <td>
+                                            {{ a.intDate}}&nbsp;({{ a.timezone}})
+                                        </td>
+                                        <td>
+                                            {{ a.type | titlecase }}
+                                        </td>
+                                        <td>
+                                            {{ a.evaluatorName }}
+                                            <br/> {{ a.evaluatorEmailId }}
+                                        </td>
+                                        <td>
+                                            <span *ngIf="a.interviewResult==='PASSED'" class="label bg-green"> {{a.interviewResult | titlecase }}</span>
+                                            <span *ngIf="a.interviewResult==='FAILED'" class="label bg-red"> {{ a.interviewResult | titlecase }}</span>
+                                            <span *ngIf="a.interviewResult==='CANDIDATE NOT AVAILABLE'" class="label bg-yellow"> {{ a.interviewResult | titlecase }}</span>
+                                            <span *ngIf="a.interviewResult==='RESCHEDULED'" class="label bg-yellow"> {{ a.interviewResult | titlecase }}</span>
+                                            <span *ngIf="a.interviewResult==='SCHEDULED'" class="label bg-orange"> {{ a.interviewResult | titlecase }}</span>
+                                        </td>
+                                        <td>{{a.evaluatorComments}}</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
                         </tab>
                     </tabs>
                 </div>
