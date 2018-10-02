@@ -5053,3 +5053,7 @@ table.text-center th {
 .pull-right {
   float: right !important;
 }
+
+[_nghost-c1] {
+  padding: 0px !important;
+}
